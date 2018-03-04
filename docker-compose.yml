@@ -1,0 +1,29 @@
+# This compose file should only be used for local development and nothing else.
+
+version: '2'
+services:
+  web:
+    image: node:9.7.1-alpine
+    volumes:
+      - .:/web
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    command: [ sh, -c, "cd /web && npm install && PORT=8080 node node_modules/nodemon/bin/nodemon.js -L --delay 5 release/index.js" ]
+    #environment:
+      # DATABASE_URL: sfsafahtt@postgres.com
+    links:
+      - "postgres"
+
+  postgres:
+    image: postgres:10.2-alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: test
+    # For debugging purposes, expose the same port for host so we can directly connect to it with our db client
+    ports:
+      - "5432:5432"
+
+
