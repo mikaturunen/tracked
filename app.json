@@ -7,13 +7,13 @@
   "formation": {
   },
   "addons": [{
-    "plan": "heroku-postgresql",
+    "plan": "heroku-postgresql:hobby-dev",
     "options": {
       "version": "10.1"
     }
   },
   {
-    "plan": "heroku-redis",
+    "plan": "heroku-redis:hobby-dev",
     "options": {
       "version": "3.2.8"
     }
