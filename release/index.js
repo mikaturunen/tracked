@@ -21,8 +21,8 @@ router.get('/', (context, next) => __awaiter(this, void 0, void 0, function* () 
     context.body = 'Hello World!';
 }));
 router.post('/api/user', (context, next) => __awaiter(this, void 0, void 0, function* () {
-    // TODO start using json schema validation for the incoming JSON. Now we just blindly trust it because
-    //      we are pretty hardcore
+    // TODO start using json schema validation for the incoming JSON. Now we just blindly trust it because we are pretty hardcore
+    // TODO start using authentication / authorization
     const email = context.request.body.email;
     const user = yield database_1.default.addUser(email);
     context.body = user;

@@ -32,9 +32,9 @@ const init = (() => __awaiter(this, void 0, void 0, function* () {
  */
 const addUser = (email) => __awaiter(this, void 0, void 0, function* () {
     return init.then((connection) => __awaiter(this, void 0, void 0, function* () {
-        const newUser = new User_1.default();
-        newUser.email = email;
         try {
+            const newUser = new User_1.default();
+            newUser.email = email;
             yield newUser.save();
             return newUser.toJson();
         }
