@@ -1,7 +1,12 @@
 {
-    "name": "Tracked",
-    "description": "Simple time tracking application built with Node.js.",
-    "repository": "https://github.com/mikaturunen/tracked",
-    "logo": "https://rawgit.com/heroku/node-js-sample/master/public/node.svg",
-    "keywords": ["node", "koa", "static"]
+  "name": "tracked",
+  "scripts": {},
+  "env": {},
+  "formation": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
 }
