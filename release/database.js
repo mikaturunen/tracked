@@ -9,17 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const load_environment_variable_1 = require("./load-environment-variable");
 const path = require("path");
 const User_1 = require("./entities/User");
 // Closure pattern to invoke it instantly and store the promise for later use
 const init = (() => __awaiter(this, void 0, void 0, function* () {
     return typeorm_1.createConnection({
         type: "postgres",
-        host: "postgres",
-        port: 5432,
-        username: "root",
-        password: "admin",
-        database: "test",
+        // Example: postgres://dnazizjfebuydj:02201a6f6b64ac914cebb8fe180d96c32e8917ebb76c4610a9bc328dd8843781@ec2-79-125-117-53.eu-west-1.compute.amazonaws.com:5432/d9fnnl736pfc5m
+        url: load_environment_variable_1.default('DATABASE_URL'),
         entities: [
             path.join(__dirname, "/entities/*.js")
         ],
