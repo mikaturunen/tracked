@@ -19,6 +19,7 @@ services:
       - "postgres"
 
   postgres:
+    # Production uses 10.0 of Postgres from Heroku but this is fine.
     image: postgres:10.2-alpine
     environment:
       # Come up with some mad testing ones for local testing to really make sure the pipeline works locally
