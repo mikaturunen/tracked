@@ -9,7 +9,7 @@
   "addons": [{
     "plan": "heroku-postgresql:hobby-dev",
     "options": {
-      "version": "10.1"
+      "version": "10"
     }
   },
   {
