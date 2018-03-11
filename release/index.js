@@ -13,6 +13,8 @@ require("reflect-metadata");
 const Koa = require("koa");
 const Router = require("koa-router");
 const Body = require("koa-body");
+const Serve = require("koa-static");
+const path = require("path");
 const load_environment_variable_1 = require("./load-environment-variable");
 const database_1 = require("./database");
 const application = new Koa();
@@ -28,6 +30,7 @@ router.post('/api/user', (context, next) => __awaiter(this, void 0, void 0, func
     context.body = user;
 }));
 application
+    .use(Serve(path.join(__dirname, '/public')))
     .use(Body())
     .use(router.routes())
     .use(router.allowedMethods());

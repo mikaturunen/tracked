@@ -5,7 +5,7 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as Body from 'koa-body';
 import * as Serve from 'koa-static';
-
+import * as path from 'path';
 
 import loadEnvironmentVariable from './load-environment-variable';
 import database from './database';
@@ -26,6 +26,7 @@ router.post('/api/user', async (context: Router.IRouterContext, next: Router.IMi
 });
 
 application
+  .use(Serve(path.join(__dirname, '/public')))
   .use(Body())
   .use(router.routes())
   .use(router.allowedMethods())
