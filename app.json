@@ -6,9 +6,18 @@
   },
   "formation": {
   },
-  "addons": [
-
-  ],
+  "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "10.1"
+    }
+  },
+  {
+    "plan": "heroku-redis",
+    "options": {
+      "version": "3.2.8"
+    }
+  }],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
