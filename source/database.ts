@@ -1,4 +1,5 @@
 import { createConnection } from 'typeorm';
+import loadEnvironmentVariable from './load-environment-variable'
 import * as path from 'path'
 
 import User from './entities/User';
@@ -6,11 +7,11 @@ import User from './entities/User';
 // Closure pattern to invoke it instantly and store the promise for later use
 const init = (async () => createConnection({
   type: "postgres",
-  host: "postgres",
-  port: 5432,
-  username: "root",
-  password: "admin",
-  database: "test",
+  host: loadEnvironmentVariable('DATABASE_HOST'),
+  port: loadEnvironmentVariable('DATABASE_PORT') as any as number,
+  username: loadEnvironmentVariable('DATABASE_USERNAME'),
+  password: loadEnvironmentVariable('DATABASE_PASSWORD'),
+  database: loadEnvironmentVariable('DATABASE_NAME'),
   entities: [
     path.join(__dirname, "/entities/*.js")
   ],
