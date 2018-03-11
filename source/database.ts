@@ -7,11 +7,7 @@ import User from './entities/User';
 // Closure pattern to invoke it instantly and store the promise for later use
 const init = (async () => createConnection({
   type: "postgres",
-  host: loadEnvironmentVariable('DATABASE_HOST'),
-  port: loadEnvironmentVariable('DATABASE_PORT') as any as number,
-  username: loadEnvironmentVariable('DATABASE_USERNAME'),
-  password: loadEnvironmentVariable('DATABASE_PASSWORD'),
-  database: loadEnvironmentVariable('DATABASE_NAME'),
+  host: loadEnvironmentVariable('DATABASE_URL'),
   entities: [
     path.join(__dirname, "/entities/*.js")
   ],
