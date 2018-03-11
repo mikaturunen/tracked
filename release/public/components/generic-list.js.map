@@ -1,0 +1,1 @@
+{"version":3,"file":"generic-list.js","sourceRoot":"","sources":["../../../source/frontend/src/components/generic-list.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAO/B,MAAM,kBAAsB,SAAQ,KAAK,CAAC,SAAkC;IAC1E,MAAM;QACJ,MAAM,EAAE,KAAK,EAAE,YAAY,EAAE,GAAG,IAAI,CAAC,KAAK,CAAC;QAE3C,MAAM,CAAC,CACL,iCACG,KAAK,CAAC,GAAG,CAAC,YAAY,CAAC,CACpB,CACP,CAAC;IACJ,CAAC;CACF"}
