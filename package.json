@@ -12,15 +12,21 @@
   "license": "MIT",
   "devDependencies": {
     "@types/koa": "^2.0.44",
+    "@types/koa-router": "^7.0.27",
+    "@types/koa-static": "^4.0.0",
     "@types/mongodb": "^3.0.5",
     "@types/node": "^9.4.6",
     "chai": "^4.1.2",
+    "concurrently": "^3.5.1",
     "mocha": "^5.0.1",
     "nodemon": "^1.17.1",
     "typescript": "^2.7.2"
   },
   "dependencies": {
     "koa": "^2.5.0",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2",
     "konfig": "^0.2.1",
     "mongodb": "^3.0.3",
     "pg": "^7.4.1",

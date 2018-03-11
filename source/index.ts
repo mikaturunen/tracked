@@ -2,29 +2,35 @@
 import "reflect-metadata";
 
 import * as Koa from 'koa';
+import * as Router from 'koa-router';
+import * as Body from 'koa-body';
+import * as Serve from 'koa-static';
+
+
 import loadEnvironmentVariable from './load-environment-variable';
-import { createConnection } from 'typeorm';
-import * as path from 'path'
+import database from './database';
 
 const application = new Koa();
+const router = new Router();
 
-application.use(async context => {
-  context.body = 'Hello, World!';
+router.get('/', async (context: Router.IRouterContext, next: Router.IMiddleware) => {
+  context.body = 'Hello World!';
 });
 
-createConnection({
-  type: "postgres",
-  host: "postgres",
-  port: 5432,
-  username: "root",
-  password: "admin",
-  database: "test",
-  entities: [
-    path.join(__dirname, "/entities/*.js")
-  ],
-  synchronize: true
-})
-.then(connection => {
-  application.listen(loadEnvironmentVariable('PORT'));
-})
-.catch(error => console.log(error));
+router.post('/api/user', async (context: Router.IRouterContext, next: Router.IMiddleware) => {
+  // TODO start using json schema validation for the incoming JSON. Now we just blindly trust it because we are pretty hardcore
+  // TODO start using authentication / authorization
+  const email = context.request.body.email;
+  const user = await database.addUser(email);
+  context.body = user;
+});
+
+application
+  .use(Body())
+  .use(router.routes())
+  .use(router.allowedMethods())
+
+application
+  .listen(loadEnvironmentVariable('PORT'));
+
+console.log(`Application running.`);

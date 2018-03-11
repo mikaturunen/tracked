@@ -2,6 +2,7 @@
 
 version: '2'
 services:
+  # Using this node.js image to mount the local environment inside it and making sure it runs
   web:
     image: node:9.7.1-alpine
     volumes:

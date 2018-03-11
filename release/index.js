@@ -11,27 +11,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // This shim import is required to have metadata reflection working properly with typeorm
 require("reflect-metadata");
 const Koa = require("koa");
+const Router = require("koa-router");
+const Body = require("koa-body");
 const load_environment_variable_1 = require("./load-environment-variable");
-const typeorm_1 = require("typeorm");
-const path = require("path");
+const database_1 = require("./database");
 const application = new Koa();
-application.use((context) => __awaiter(this, void 0, void 0, function* () {
-    context.body = 'Hello, World!';
+const router = new Router();
+router.get('/', (context, next) => __awaiter(this, void 0, void 0, function* () {
+    context.body = 'Hello World!';
 }));
-typeorm_1.createConnection({
-    type: "postgres",
-    host: "postgres",
-    port: 5432,
-    username: "root",
-    password: "admin",
-    database: "test",
-    entities: [
-        path.join(__dirname, "/entities/*.js")
-    ],
-    synchronize: true
-})
-    .then(connection => {
-    application.listen(load_environment_variable_1.default('PORT'));
-})
-    .catch(error => console.log(error));
+router.post('/api/user', (context, next) => __awaiter(this, void 0, void 0, function* () {
+    // TODO start using json schema validation for the incoming JSON. Now we just blindly trust it because
+    //      we are pretty hardcore
+    const email = context.request.body.email;
+    const user = yield database_1.default.addUser(email);
+    context.body = user;
+}));
+application
+    .use(Body())
+    .use(router.routes())
+    .use(router.allowedMethods());
+application
+    .listen(load_environment_variable_1.default('PORT'));
+console.log(`Application running.`);
 //# sourceMappingURL=index.js.map

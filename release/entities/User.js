@@ -14,20 +14,26 @@ const typeorm_1 = require("typeorm");
  * Represents a single logged in User in the service. This is strictly service level User and does
  * directly contain any personal information, other than through relations.
  */
-let User = class User {
+let UserEntity = class UserEntity extends typeorm_1.BaseEntity {
+    toJson() {
+        return {
+            id: this.id,
+            email: this.email
+        };
+    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
+], UserEntity.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column({
         length: 80
     }),
     __metadata("design:type", String)
-], User.prototype, "email", void 0);
-User = __decorate([
+], UserEntity.prototype, "email", void 0);
+UserEntity = __decorate([
     typeorm_1.Entity()
-], User);
-exports.User = User;
+], UserEntity);
+exports.default = UserEntity;
 //# sourceMappingURL=User.js.map
