@@ -19,9 +19,6 @@ const load_environment_variable_1 = require("./load-environment-variable");
 const database_1 = require("./database");
 const application = new Koa();
 const router = new Router();
-router.get('/', (context, next) => __awaiter(this, void 0, void 0, function* () {
-    context.body = 'Hello World!';
-}));
 router.post('/api/user', (context, next) => __awaiter(this, void 0, void 0, function* () {
     // TODO start using json schema validation for the incoming JSON. Now we just blindly trust it because we are pretty hardcore
     // TODO start using authentication / authorization

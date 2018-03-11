@@ -13,10 +13,6 @@ import database from './database';
 const application = new Koa();
 const router = new Router();
 
-router.get('/', async (context: Router.IRouterContext, next: Router.IMiddleware) => {
-  context.body = 'Hello World!';
-});
-
 router.post('/api/user', async (context: Router.IRouterContext, next: Router.IMiddleware) => {
   // TODO start using json schema validation for the incoming JSON. Now we just blindly trust it because we are pretty hardcore
   // TODO start using authentication / authorization
