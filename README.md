@@ -24,10 +24,10 @@ They both have their own build porcess but are compiled under `release/` into a 
 $ docker-compose up     # This will start the applications services and mount the local environment inside it
 # Terminal 2:
 $ cd source/backend
-$ tsc --watch           # As changes happen, terminal will compile backend changes into the container.
+$ npm run build         # builds backend and it's instantly available .
 # Terminal 3:
 $ cd source/frontend
-$ tsc --watch           # Same as above but for frontend
+$ npm run build         # Same as above but for frontend
 
 # Open localhost:8080 to see the application and the changes in real-time
 ```

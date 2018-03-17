@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run build && mocha tests/**/*.test.js",
     "tests": "npm run test",
-    "build": "tsc"
+    "build": "tsc -p source/backend/tsconfig.json"
   },
   "author": "Mika Turunen <mika.turunen@ymail.com>",
   "license": "MIT",
