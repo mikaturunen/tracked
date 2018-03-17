@@ -11,7 +11,7 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
-    command: [ sh, -c, "cd /web && npm install && node node_modules/nodemon/bin/nodemon.js -L --delay 5 release/index.js" ]
+    command: [ sh, -c, "cd /web && npm install && cd /web && node node_modules/nodemon/bin/nodemon.js -L --delay 5 release/index.js" ]
     environment:
       PORT: 8080
       DATABASE_URL: postgres://dnazizjfebuydj:02201a6f6b64ac914cebb8fe180d96c32e8917ebb76c4610a9bc328dd8843781@postgres:5432/d9fnnl736pfc5m
