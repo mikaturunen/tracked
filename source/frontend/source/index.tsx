@@ -8,13 +8,15 @@ import { Hello } from './components/Hello';
 const store = createStore(Reducers);
 const rootElement = document.getElementById('root')
 
+// TODO Start using the actual login component instead of silly Hello.tsx
+
 const render = () => ReactDOM.render(
     <Hello
         compiler='TypeScript'
         framework='React'
         value={store.getState()}
     />,
-    document.getElementById('example')
+    document.getElementById('tracked')
 );
 
 render();
