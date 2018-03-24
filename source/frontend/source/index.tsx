@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createStore} from 'redux';
+import { createStore } from 'redux';
 
 import Reducers from './reducers/index'
-import { Hello } from './components/Hello';
+import { LoginWindow } from './components/login-window';
 
 const store = createStore(Reducers);
 const rootElement = document.getElementById('root')
@@ -11,12 +11,11 @@ const rootElement = document.getElementById('root')
 // TODO Start using the actual login component instead of silly Hello.tsx
 
 const render = () => ReactDOM.render(
-    <Hello
-        compiler='TypeScript'
-        framework='React'
-        value={store.getState()}
-    />,
-    document.getElementById('tracked')
+  <LoginWindow
+    password=''
+    username=''
+  />,
+  document.getElementById('tracked')
 );
 
 render();
