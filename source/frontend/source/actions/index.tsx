@@ -7,11 +7,5 @@ export default {
     ATTEMPT_LOGIN
 };
 
-const creator = (actionName: string, payload?: any) => {
-    return {
-        [actionName]: actionName,
-        payload
-    }
-}
-
-export const showLogin = () => creator(SHOW_LOGIN_WINDOW);
+export const showLogin = () => ({ type: SHOW_LOGIN_WINDOW });
+export const attemptLogin = (username: string, password: string) => ({ type: ATTEMPT_LOGIN, payload: { username, password } });

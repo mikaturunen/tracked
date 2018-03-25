@@ -2,7 +2,6 @@
 import { AnyAction } from 'redux';
 import Actions from '../actions';
 import { showLogin } from '../actions';
-
 export interface ApplicationState {
 
 }
@@ -14,8 +13,12 @@ export interface ApplicationState {
  */
 export default (state = showLogin(), action: AnyAction): ApplicationState => {
   switch (action.type) {
+    case Actions.ATTEMPT_LOGIN:
+      console.log(Actions.ATTEMPT_LOGIN);
+      return state;
+
     case Actions.SHOW_LOGIN_WINDOW:
-      return showLogin();
+      return state;
 
     default:
       // Initial application state. We return this if we have nothing better to do.
