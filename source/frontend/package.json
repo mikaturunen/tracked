@@ -15,10 +15,12 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "@types/react-redux": "^5.0.15",
+    "@types/redux-thunk": "^2.1.0",
     "awesome-typescript-loader": "^4.0.1",
     "copy-webpack-plugin": "^4.5.1",
     "source-map-loader": "^0.2.3",
