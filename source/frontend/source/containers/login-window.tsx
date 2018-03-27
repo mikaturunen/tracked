@@ -4,7 +4,7 @@ import { attemptLogin } from '../actions';
 import LoginWindowComponent from '../components/login-window';
 
 const mapStateToProps = (state: any) => ({
-
+  username: state.username
 });
 
 const LoginWindow = connect(mapStateToProps, {

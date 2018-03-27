@@ -14,7 +14,7 @@ export interface ApplicationState {
 export default (state = showLogin(), action: AnyAction): ApplicationState => {
   switch (action.type) {
     case Actions.ATTEMPT_LOGIN:
-      console.log(Actions.ATTEMPT_LOGIN);
+      console.log(Actions.ATTEMPT_LOGIN, state);
       return state;
 
     case Actions.SHOW_LOGIN_WINDOW:
