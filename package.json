@@ -6,7 +6,9 @@
   "scripts": {
     "test": "npm run build && mocha tests/**/*.test.js",
     "tests": "npm run test",
-    "build": "tsc"
+    "build": "tsc",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Mika Turunen <mika.turunen@ymail.com>",
   "license": "MIT",
@@ -31,6 +33,8 @@
     "pg": "^7.4.1",
     "reflect-metadata": "^0.1.12",
     "typeorm": "^0.1.14",
-    "unirest": "^0.5.1"
-  }
+    "unirest": "^0.5.1",
+    "snyk": "^1.85.0"
+  },
+  "snyk": true
 }
