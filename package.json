@@ -24,13 +24,13 @@
   "dependencies": {
     "koa": "^2.5.0",
     "koa-body": "^2.5.0",
-    "koa-router": "^7.4.0",
+    "koa-router": "^11.0.2",
     "koa-static": "^4.0.2",
     "konfig": "^0.2.1",
     "mongodb": "^3.0.3",
     "pg": "^7.4.1",
     "reflect-metadata": "^0.1.12",
-    "typeorm": "^0.1.14",
+    "typeorm": "^0.2.15",
     "unirest": "^0.5.1"
   }
 }
